@@ -1,5 +1,5 @@
 # Kodluyoruz-k132-Final-Project
-In this project, about 40.000 comments are processed and devided into 5 categories.
+In this project, about 40.000 comments are processed and divided into 5 categories.
 
 Comments used in this repo are obtained from [Yemek Sepeti Restaurant Datas](https://github.com/CanDeniz-96/Yemek-Sepeti-Restaurant-Datas)
 

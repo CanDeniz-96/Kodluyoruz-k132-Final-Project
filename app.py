@@ -12,7 +12,7 @@ NOTE: To stop this process, pres 'ctrl + c'"""
 
 #import required libraries
 from fastapi import FastAPI
-from fastapi import Form
+from fastapi import Body
 import uvicorn
 import pandas as pd
 import numpy as np
@@ -33,16 +33,16 @@ def vectorize(text:str):
     return vectorizer.encode(text)
 
 
-# Setting get and post requests.
+#Set a default well come message
 @app.get('/')
-@app.post('/rfc_predict')
-@app.post('/dtc_predict')
+
+
 
 def root():
     return """Well Come. To start test, go to http://127.0.0.1:8080/docs"""
 
-
-async def rfc_predict(comment: str = Form(...)):
+@app.post('/rfc_predict')
+async def rfc_predict(comment: str = Body(..., embed=True)):
     """comment: str: is a comment text."""
     print(comment)
     #Loading the rfc_model from a pickle file.
@@ -58,8 +58,8 @@ async def rfc_predict(comment: str = Form(...)):
     return {"Category" : str(prediction[0])}
 
 
-
-async def dtc_predict(comment: str =Form(...)):
+@app.post('/dtc_predict')
+async def dtc_predict(comment: str =Body(..., embed=True)):
     """comment: str: is a comment text."""
     print(comment)
 
